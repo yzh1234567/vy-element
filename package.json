@@ -1,0 +1,44 @@
+{
+  "name": "vy-tree",
+  "version": "1.0.0",
+  "description": "这是一个围绕树形组件的组件库",
+  "main": "./dist/vy-element.js",
+  "private": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=production webpack --progress --config build/webpack.config.js"
+  },
+  "author": "yzh",
+  "license": "MIT",
+  "keywords": [
+    "Vue",
+    "多选组件",
+    "树形组件",
+    "checkbox",
+    "tree"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yzh1234567/vy-element.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yzh1234567/vy-element/issues"
+  },
+  "homepage": "https://github.com/yzh1234567/vy-element",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "style-loader": "^2.0.0",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
