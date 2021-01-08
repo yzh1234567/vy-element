@@ -1,6 +1,6 @@
 {
   "name": "vy-tree",
-  "version": "1.0.0",
+  "version": "1.1.4",
   "description": "这是一个围绕树形组件的组件库",
   "main": "./dist/vy-element.js",
   "private": false,
@@ -8,6 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production webpack --progress --config build/webpack.config.js"
   },
+  "files":[
+    "dist",
+    "src",
+    "package.json" 
+  ],
   "author": "yzh",
   "license": "MIT",
   "keywords": [

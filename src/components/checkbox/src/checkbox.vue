@@ -81,7 +81,7 @@ export default {
       },
       set(val) {
         if (this.isGroup) {
-          this.dispatch("MyCheckboxGroup", "input", [val]);
+          this.dispatch("vyCheckboxGroup", "input", [val]);
         } else {
           this.$emit("input", val);
           this.selfModel = val;
@@ -100,7 +100,7 @@ export default {
     isGroup() {
       let parent = this.$parent;
       while (parent) {
-        if (parent.$options.componentName !== "MyCheckboxGroup") {
+        if (parent.$options.componentName !== "vyCheckboxGroup") {
           parent = parent.$parent;
         } else {
           this._checkboxGroup = parent;
@@ -135,7 +135,7 @@ export default {
       this.$emit("change", value, ev);
       this.$nextTick(() => {
         if (this.isGroup) {
-          this.dispatch("MyCheckboxGroup", "change", [
+          this.dispatch("vyCheckboxGroup", "change", [
             this._checkboxGroup.value,
           ]);
         }
