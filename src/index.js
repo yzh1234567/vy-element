@@ -2,7 +2,11 @@ import checkbox from "./components/checkbox/index.js";
 
 import checkboxGroup from "./components/checkbox-group/index";
 
-const components=[checkbox,checkboxGroup]
+import icon from "./components/icon/index";
+
+import tree from "./components/tree/index";
+
+const components=[checkbox,checkboxGroup,icon,tree]
 
 function install(Vue){
     components.forEach(component=>{
@@ -18,5 +22,7 @@ if(typeof window !=='undefined' && window.Vue){
 export default{
     install,
     checkbox,
-    checkboxGroup
+    checkboxGroup,
+    icon,
+    tree,
 }

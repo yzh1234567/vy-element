@@ -1,6 +1,6 @@
 {
   "name": "vy-tree",
-  "version": "1.1.4",
+  "version": "1.2.3",
   "description": "这是一个围绕树形组件的组件库",
   "main": "./dist/vy-element.js",
   "private": false,
@@ -8,10 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production webpack --progress --config build/webpack.config.js"
   },
-  "files":[
+  "files": [
     "dist",
     "src",
-    "package.json" 
+    "package.json"
   ],
   "author": "yzh",
   "license": "MIT",
@@ -40,6 +40,7 @@
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
     "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
     "vue-loader": "^15.9.6",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^5.11.1",

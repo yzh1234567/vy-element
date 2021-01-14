@@ -1,7 +1,7 @@
 <template>
   <div>
     <label
-      class="my-checkbox"
+      class="vy-checkbox"
       :class="{
         'is-disabled': disabled,
         'is-checked': isChecked,
@@ -9,13 +9,13 @@
       }"
     >
       <span
-        class="my-checkbox__input"
+        class="vy-checkbox__input"
         :class="{ 'is-disabled': disabled, 'is-checked': isChecked }"
       >
-        <span class="my-checkbox__inner" :style="styleObject"></span>
+        <span class="vy-checkbox__inner" :style="styleObject"></span>
         <input
           type="checkbox"
-          class="my-checkbox__original"
+          class="vy-checkbox__original"
           :value="label"
           v-model="model"
           :disabled="disabled"
@@ -24,7 +24,7 @@
           @change="handleChange"
         />
       </span>
-      <span class="my-checkbox__label" v-if="$slots.default || label">
+      <span class="vy-checkbox__label" v-if="$slots.default || label">
         <slot></slot>
         <!-- // 有插槽内容显示插槽 无直接显示label -->
         <template v-if="!$slots.default">{{ label }}</template>
@@ -153,11 +153,11 @@ export default {
   },
 };
 </script>
-<style  scoped>
+<style  >
 input {
   cursor: pointer;
 }
-.my-checkbox {
+.vy-checkbox {
   color: #606266;
   font-weight: 500;
   font-size: 15px;
@@ -169,7 +169,7 @@ input {
   margin-right: 30px;
   padding: 6px;
 }
-.my-checkbox__input {
+.vy-checkbox__input {
   white-space: nowrap;
   cursor: pointer;
   outline: none;
@@ -178,15 +178,15 @@ input {
   position: relative;
   vertical-align: middle;
 }
-.my-checkbox:last-of-type {
+.vy-checkbox:last-of-type {
   margin-right: 0;
 }
 
-.my-checkbox__input.is-checked .my-checkbox__inner {
+.vy-checkbox__input.is-checked .vy-checkbox__inner {
   background-color: #2179d1;
   border-color: #2179d1;
 }
-.my-checkbox__inner {
+.vy-checkbox__inner {
   display: inline-block;
   position: relative;
   border: 1px solid #dcdfe6;
@@ -197,13 +197,13 @@ input {
   transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
     background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
 }
-.my-checkbox__input.is-checked .my-checkbox__inner:after {
+.vy-checkbox__input.is-checked .vy-checkbox__inner:after {
   transform: rotate(45deg) scaleY(1);
 }
-.my-checkbox__input.is-disabled.is-checked .my-checkbox__inner:after {
+.vy-checkbox__input.is-disabled.is-checked .vy-checkbox__inner:after {
   border-color: #c0c4cc;
 }
-.my-checkbox__inner:after {
+.vy-checkbox__inner:after {
   box-sizing: content-box;
   content: "";
   border: 1px solid #fff;
@@ -218,7 +218,7 @@ input {
   transition: transform 0.15s ease-in 0.05s;
   transform-origin: center;
 }
-.my-checkbox__original {
+.vy-checkbox__original {
   opacity: 0;
   outline: none;
   position: absolute;
@@ -229,23 +229,23 @@ input {
   bottom: 0;
   z-index: 1;
 }
-.my-checkbox__original[disabled] {
+.vy-checkbox__original[disabled] {
   cursor: not-allowed;
 }
-.my-checkbox__input.is-checked + .my-checkbox__label {
+.vy-checkbox__input.is-checked + .vy-checkbox__label {
   color: #2179d1;
 }
-.my-checkbox__input.is-disabled + span.my-checkbox__label {
+.vy-checkbox__input.is-disabled + span.vy-checkbox__label {
   color: #c0c4cc;
   cursor: not-allowed;
 }
-.my-checkbox__label {
+.vy-checkbox__label {
   display: inline-block;
   padding-left: 6px;
   line-height: 19px;
   font-size: 14px;
 }
-.my-checkbox__input.is-disabled .my-checkbox__inner {
+.vy-checkbox__input.is-disabled .vy-checkbox__inner {
   background-color: #edf2fc;
   border-color: #dcdfe6;
   cursor: not-allowed;

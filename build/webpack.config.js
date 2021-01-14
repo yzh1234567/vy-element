@@ -49,6 +49,24 @@ module.exports={
                 loader: 'babel-loader',
                 exclude: /node_modules/
               },
+              {
+                 test:/\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
+                 loader:'url-loader',
+                 options:{
+                    limit:10000,
+                  //   跨平台输出路径
+                    name:path.posix.join('icon-font','[name].[ext]')
+                 }
+              },
+              {
+               test:/\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
+               //file-loader 会把满足匹配条件的文件按照指定的方式输出
+               loader:'file-loader',
+               options:{
+                //   跨平台输出路径
+                  name:path.posix.join('icon-font','[name].[ext]')
+               }
+            }
          ]
     },
     /* 解析模块请求的选项;不适用对loader解析 */

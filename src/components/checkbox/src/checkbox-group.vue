@@ -1,6 +1,6 @@
 <template>
   <div
-    class="my-checkbox-group"
+    class="vy-checkbox-group"
     role="group"
     aria-label="checkbox-group"
     :class="objClass"
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       objClass: {
-        "horizontal-checkbox": this.mode === "horizontal",
+        "vy-horizontal-checkbox": this.mode === "horizontal",
       },
     };
   },
@@ -36,7 +36,7 @@ export default {
 };
 </script>
 <style scoped>
-.horizontal-checkbox {
+.vy-horizontal-checkbox {
   display: flex;
   flex-direction: row;
 }
