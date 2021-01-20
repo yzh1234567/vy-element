@@ -17,6 +17,7 @@ export default class Store{
           this.root = new Node({
            data: this.data,
            store: this,
+           render:this.render,
           });
 
           if(this.lazy&&this.load){

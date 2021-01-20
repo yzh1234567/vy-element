@@ -253,7 +253,8 @@ export default class Node{
           }
           objectAssign(child, {
             parent: this,
-            store: this.store
+            store: this.store,
+            render:this.render,
           });
           child = new Node(child);
         }

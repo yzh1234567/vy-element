@@ -153,7 +153,8 @@ export default {
   },
 };
 </script>
-<style  >
+<style  lang='less'>
+@import url("vy-element/src/less/index.less");
 input {
   cursor: pointer;
 }
@@ -183,8 +184,8 @@ input {
 }
 
 .vy-checkbox__input.is-checked .vy-checkbox__inner {
-  background-color: #2179d1;
-  border-color: #2179d1;
+  background-color: @color2;
+  border-color: @color2;
 }
 .vy-checkbox__inner {
   display: inline-block;
@@ -233,7 +234,7 @@ input {
   cursor: not-allowed;
 }
 .vy-checkbox__input.is-checked + .vy-checkbox__label {
-  color: #2179d1;
+  color: @color2;
 }
 .vy-checkbox__input.is-disabled + span.vy-checkbox__label {
   color: #c0c4cc;

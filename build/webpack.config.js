@@ -40,6 +40,24 @@ module.exports={
                 loader: 'vue-loader',
                 options: {
                   loaders: {
+                     css:[
+                        'vue-style-loader',
+                        {
+                           loader:'css-loader'
+                        }
+                     ],
+                     less:[
+                        'vue-style-loader',
+                        {
+                           loader:'css-loader'
+                        },
+                        {
+                           loader:'less-loader'
+                        },
+                        {
+                           loader:'sass-loader'
+                        },
+                     ]
                   }
                   // other vue-loader options go here
                 }
@@ -48,6 +66,34 @@ module.exports={
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
+              },
+              {
+                test:/\.less$/,
+                use:[
+                   {
+                      loader:'style-loader'
+                   },
+                   {
+                      loader:'css-loader'
+                   },
+                   {
+                      loader:'less-loader'
+                   }
+                ]
+              },
+              {
+                 test:/\.scss$/,
+                 use:[
+                  {
+                     loader:'style-loader'
+                  },
+                  {
+                     loader:'css-loader'
+                  },
+                  {
+                     loader:'sass-loader'
+                  }
+               ]
               },
               {
                  test:/\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
@@ -79,6 +125,7 @@ module.exports={
        extensions:['.js','.json','.css','.jsx'],
        alias:{
           'vy-element':path.resolve(__dirname,'../'),
+          '@':path.resolve(__dirname,'./src') 
        }
     },
     plugins:[

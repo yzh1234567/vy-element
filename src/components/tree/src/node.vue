@@ -13,6 +13,8 @@
           v-if="iconClass ? true : false"
           class="vy-tree-expand"
         ></span>
+        <vy-render v-if="data.render" :render="data.render"></vy-render>
+        <!--  -->
         <vy-checkbox
           class="vy-checkbox"
           icon-size="18px"
@@ -41,13 +43,15 @@
   </div>
 </template>
 <script>
-import broadCastMixins from "../js/util"; // 引入broadCast传值的方法
+import broadCastMixins from "vy-element/src/mixins/emitter"; // 引入broadCast传值的方法
 import vyCheckbox from "../../checkbox/index.js";
+import vyRender from "../js/render";
 export default {
   name: "Node", // 这个很关键，递归组件必须有name
   componentName: "Node",
   components: {
     vyCheckbox,
+    vyRender,
   },
   data() {
     return {
@@ -118,8 +122,8 @@ export default {
   },
   methods: {
     handleNodeExpand(nodeData, node, instance) {
-      this.broadCast("Node", "tree-node-expand", node);
-      this.$emit("node-expand", nodeData, node, instance);
+      this.broadcast("Node", "tree-node-expand", node);
+      this.tree.$emit("node-expand", nodeData, node, instance);
     },
     handleExpand() {
       if (this.data.isLeaf) return;
@@ -149,12 +153,20 @@ export default {
     } else {
       this.tree = parent.tree;
     }
+    if (this.tree.accordion) {
+      this.$on("tree-node-expand", (node) => {
+        if (this.data !== node) {
+          this.data.collapse();
+        }
+      });
+    }
   },
   mounted() {},
 };
 </script>
 
-<style >
+<style  lang='less'>
+@import url("vy-element/src/less/index.less");
 .vy-tree-ul,
 .vy-tree-li {
   font-size: 20px;
@@ -176,6 +188,9 @@ export default {
   padding-right: 3px;
   padding-left: 10px;
   cursor: pointer;
+}
+.vy-tree-item:hover {
+  background: @color1;
 }
 .vy-tree-item > span {
   padding: 0 6px;

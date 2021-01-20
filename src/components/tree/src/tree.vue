@@ -14,7 +14,7 @@
 
 <script>
 import Store from "../js/store";
-import broadCastMixins from "../js/util"; // 引入broadCast传值的方法
+import broadCastMixins from "vy-element/src/mixins/emitter"; // 引入broadCast传值的方法
 import Node from "./node.vue";
 export default {
   name: "vyTree",
@@ -103,6 +103,9 @@ export default {
       default: "checkbox",
       checkedValue: ["radio", "checkbox"],
     },
+    render: {
+      type: Function,
+    },
   },
   data() {
     return {
@@ -119,7 +122,7 @@ export default {
   // 先定义几个方法，这些方法最终要执行的是把Node组件传过来的数据抛到调用Tree的组件里面
   methods: {
     handleNodeExpand(nodeData, node, instance) {
-      this.broadCast("Node", "tree-node-expand", node);
+      this.broadcast("Node", "tree-node-expand", node);
       this.$emit("node-expand", nodeData, node, instance);
     },
   },
@@ -141,6 +144,8 @@ export default {
       defaultExpandAll: this.defaultExpandAll,
       filterNodeMethod: this.filterNodeMethod,
       mode: this.mode,
+      render: this.render,
+      accordion: this.accordion,
     });
     this.root = this.store.root;
     console.log(this.root);
